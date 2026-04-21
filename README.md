@@ -79,47 +79,45 @@ missing_side (px)      = known_side × (ratio_b / ratio_a)
 
 ## Roadmap
 
-TODO - ERROR MANAGEMENT
-
 ### 🧮 F1 — Core Calculation Engine
 The domain heart of the app. No UI, pure logic.
 
-- [ ] Define `DocumentSpec` and `DocumentResult` domain models
-- [ ] Implement `CalculateDocumentUseCase` (px ↔ physical units, ratio resolution)
-- [ ] Support input in px, mm, cm, and inches
-- [ ] Support multi-DPI output in a single calculation
-- [ ] Orientation handling (landscape / portrait)
-- [ ] Unit tests for all calculation paths and edge cases
+- [x] Define `DocumentSpec` and `DocumentResult` domain models
+- [x] Implement `CalculateDocumentUseCase` (px ↔ physical units, ratio resolution)
+- [x] Support input in px, mm, cm, and inches
+- [x] Support multi-DPI output in a single calculation
+- [x] Orientation handling (landscape / portrait)
+- [x] Unit tests for all calculation paths and edge cases
 
 ---
 
 ### 🖊️ F2 — Input Form
 The user-facing side of the calculator.
 
-- [ ] Aspect ratio selector with presets (16:9, 4:3, 1:1, 9:16, A4)
-- [ ] Custom ratio input (free W:H fields)
-- [ ] Known side selector (width or height) with unit picker (px / mm / cm / inch)
-- [ ] Multi-DPI selector (preset chips + free input field)
-- [ ] Orientation toggle (landscape / portrait)
-- [ ] Input validation and error states
+- [x] Aspect ratio selector with presets (16:9, 4:3, 1:1, 9:16, A4)
+- [x] Custom ratio input (free W:H fields)
+- [x] Known side selector (width or height) with unit picker (px / mm / cm / inch)
+- [x] Multi-DPI selector (preset chips + free input field)
+- [x] Orientation toggle (landscape / portrait)
+- [x] Input validation and error states
 
 ---
 
 ### 📐 F3 — Results Display
 How calculated data is presented to the user.
 
-- [ ] Result card per DPI showing px, mm, cm, and inches
-- [ ] Visual proportion preview (scaled rectangle reflecting the actual ratio)
-- [ ] Contextual DPI warnings (e.g. 72 dpi flagged as unsuitable for print)
-- [ ] Usage context label per DPI ("Screen", "Draft", "Print", "High-res print")
+- [x] Result card per DPI showing px, mm, cm, and inches
+- [x] Visual proportion preview (scaled rectangle reflecting the actual ratio)
+- [x] Contextual DPI warnings (e.g. 72 dpi flagged as unsuitable for print)
+- [x] Usage context label per DPI ("Screen", "Draft", "Print", "High-res print")
 
 ---
 
 ### 🖨️ F4 — Print Support
 Extra considerations for physical output.
 
-- [ ] Bleed margin input (mm)
-- [ ] Bleed-adjusted dimensions shown alongside base dimensions in result card
+- [x] Bleed margin input (mm)
+- [x] Bleed-adjusted dimensions shown alongside base dimensions in result card
 - [ ] Visual bleed indicator in proportion preview
 
 ---
@@ -169,23 +167,10 @@ Quick access without opening the app.
 
 ---
 
-## Contributing
-
-Contributions are welcome. If you're a designer who uses the app and has ideas, open an issue — design feedback is as valuable as code here.
-
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes
-4. Open a pull request
-
-Please follow the existing code style and architecture patterns.
-
----
-
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-*Built by a developer, for designers.*
+*Built by a developer, for designers or vice versa ^^.*
