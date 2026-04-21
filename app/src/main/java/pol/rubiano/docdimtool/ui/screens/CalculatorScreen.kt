@@ -106,10 +106,8 @@ private fun ResultsSection(results: List<DocumentResult>) {
     }
 }
 
-// --- Sections -----------------------------------------------------------------
-
 @Composable
-private fun RatioSection(
+internal fun RatioSection(
     selected: RatioPreset,
     customWidth: String,
     customHeight: String,
@@ -164,7 +162,6 @@ private fun KnownValueSection(
     onUnit: (InputUnit) -> Unit,
 ) {
     FormSection(title = "Known Side") {
-        // Side toggle
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             Side.entries.forEach { side ->
                 FilterChip(
@@ -175,7 +172,6 @@ private fun KnownValueSection(
             }
         }
 
-        // Value + unit
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment     = Alignment.CenterVertically,
@@ -199,7 +195,7 @@ private fun KnownValueSection(
 }
 
 @Composable
-private fun DpiSection(
+internal fun DpiSection(
     selected: Set<Int>,
     customValue: String,
     onToggle: (Int) -> Unit,
@@ -209,7 +205,6 @@ private fun DpiSection(
     val presets = listOf(72, 96, 150, 300, 600)
 
     FormSection(title = "DPI") {
-        // Info text showing selected count
         if (selected.isNotEmpty()) {
             Text(
                 text = "Selected: ${selected.sorted().joinToString(", ")}",
@@ -246,7 +241,6 @@ private fun DpiSection(
             FilledTonalButton(onClick = onCustomConfirm) { Text("Add") }
         }
 
-        // Show added custom dpis (those not in presets)
         val customDpis = selected.filter { it !in presets }.sorted()
         if (customDpis.isNotEmpty()) {
             Text(
@@ -269,7 +263,7 @@ private fun DpiSection(
 }
 
 @Composable
-private fun OrientationSection(
+internal fun OrientationSection(
     orientation: Orientation,
     onChange: (Orientation) -> Unit,
 ) {
@@ -288,7 +282,7 @@ private fun OrientationSection(
 }
 
 @Composable
-private fun BleedSection(
+internal fun BleedSection(
     value: String,
     unit: BleedUnit,
     onValueChange: (String) -> Unit,
@@ -330,10 +324,8 @@ private fun BleedUnitDropdown(selected: BleedUnit, onChange: (BleedUnit) -> Unit
     }
 }
 
-// --- Shared composables -------------------------------------------------------
-
 @Composable
-private fun FormSection(title: String, content: @Composable ColumnScope.() -> Unit) {
+internal fun FormSection(title: String, content: @Composable ColumnScope.() -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Text(title, style = MaterialTheme.typography.titleSmall,
             color = MaterialTheme.colorScheme.primary)
@@ -361,7 +353,7 @@ private fun UnitDropdown(selected: InputUnit, onChange: (InputUnit) -> Unit) {
 }
 
 @Composable
-private fun ErrorBanner(error: CalculatorError) {
+internal fun ErrorBanner(error: CalculatorError) {
     val message = when (error) {
         CalculatorError.EmptyValue         -> "Please enter a value"
         CalculatorError.InvalidValue       -> "Value must be a positive number"
@@ -379,9 +371,7 @@ private fun ErrorBanner(error: CalculatorError) {
     }
 }
 
-// --- Helpers ------------------------------------------------------------------
-
-private fun numericOptions(imeAction: ImeAction = ImeAction.Next) = KeyboardOptions(
+fun numericOptions(imeAction: ImeAction = ImeAction.Next) = KeyboardOptions(
     keyboardType = KeyboardType.Decimal,
     imeAction    = imeAction,
 )
